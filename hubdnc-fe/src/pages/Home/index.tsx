@@ -45,6 +45,8 @@ const Home = () => {
     navigate('/exit');
   };
 
+  //엄격모드로 인해 두번 랜더링되어 언마운트 되는 현상을 방지하고자,
+  //useRef를 이용해서 페이지가 이동될 때, 언마운트가 실행되게 구현하였습니다.
   useEffect(() => {
     if (isMounted.current)
       return () => alert('창구에 있는 합산된 정보는 사라집니다');
