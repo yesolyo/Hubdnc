@@ -14,11 +14,11 @@ const Counter = ({ onSaveTotalPrice }: Props) => {
 
   useEffect(() => {
     const getRandomNumber = () => {
-      let str = '';
-      for (let i = 0; i < 6; i++) {
-        str += Math.floor(Math.random() * 10);
-      }
-      return Number(str);
+      const numberList = new Array(6).fill(0);
+      numberList.forEach(
+        (_, i) => (numberList[i] = Math.floor(Math.random() * 10)),
+      );
+      return Number(numberList.join(''));
     };
     const randomPrice = getRandomNumber();
     setPrice(randomPrice);
